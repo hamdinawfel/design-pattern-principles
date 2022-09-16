@@ -7,7 +7,6 @@ class Program
     {
         StandardMessage.Welcome();
 
-        UserCreator.Create();
 
         var user = UserCreator.Create();
 
