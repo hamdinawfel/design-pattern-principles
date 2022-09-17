@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace OCP
 {
-    public class PersonelModel
+    public class PersonModel : IApplicantModel
     {
         public string FirstName { get; set; }
         public string Lastname { get; set; }
+        public IAccounts AccountProcessor { get; set; } = new Accounts();
+
     }
 }

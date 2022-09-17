@@ -7,24 +7,24 @@ class Program
     static void Main(string[] args)
     {
 
-        List<PersonelModel> candidates = new List<PersonelModel>()
+        List<IApplicantModel> candidates = new List<IApplicantModel>()
         {
-             new PersonelModel { FirstName = "Craig", Lastname = "Doe" },
-             new PersonelModel { FirstName = "Nawfel", Lastname = "Hamdi" },
+             new PersonModel { FirstName = "Craig", Lastname = "Doe" },
+             new ManagerModel { FirstName = "Nawfel", Lastname = "Hamdi"},
+             new StaffModel { FirstName = "Nao", Lastname = "Erics"},
         };
 
-        List<EmployeeModel> employess = new List<EmployeeModel>();
+        List<EmployeeModel> employees = new List<EmployeeModel>();
 
-        Accounts accountPressors = new Accounts();
 
         foreach (var person in candidates)
         {
-            employess.Add(accountPressors.Create(person));
+            employees.Add(person.AccountProcessor.Create(person));
         }
 
-        foreach (var employee in employess)
+        foreach (var employee in employees)
         {
-            Console.WriteLine($"{employee.FirstName} {employee.Lastname} {employee.Email}");
+            Console.WriteLine($"{employee.FirstName} {employee.Lastname} {employee.Email} IsManager : {employee.IsManager} IsExecutive : {employee.IsExecutive} IsStaff={employee.IsStaff}");
         }
     }
 }

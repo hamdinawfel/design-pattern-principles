@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace OCP
 {
-    public class EmployeeModel
+    public class ManagerModel: IApplicantModel
     {
         public string FirstName { get; set; }
         public string Lastname { get; set; }
-        public string Email { get; set; }
-
-        public bool IsManager { get; set; } = false;
-        public bool IsExecutive { get; set; } = false;
-        public bool IsStaff { get; set; } = true;
-
+        public IAccounts AccountProcessor { get; set; } = new ManagerAccounts();
     }
 }
