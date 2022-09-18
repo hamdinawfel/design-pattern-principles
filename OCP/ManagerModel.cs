@@ -12,4 +12,5 @@ namespace OCP
         public string Lastname { get; set; }
         public IAccounts AccountProcessor { get; set; } = new ManagerAccounts();
     }
+
 }
