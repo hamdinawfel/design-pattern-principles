@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace LSP
 {
-    public class CEO: Employee
+    public class CEO : BaseEmployee, IManager
     {
-        public override void AssignManager(Employee manager)
-        {
-            throw new Exception("A CEO doesn't have a manager");
-        }
-
         public virtual void CalculatePerHourRate(int rank)
         {
             decimal baseAmount = 12.50M;
@@ -21,12 +16,13 @@ namespace LSP
 
         public void GeneratePerformanceReview()
         {
-            Console.WriteLine("I'm reviewing a performance report");
+            Console.WriteLine("I'm reviewing a performance report us CEO");
         }
 
         public void FireSomeone()
         {
             Console.WriteLine("You are fired!");
         }
+
     }
 }

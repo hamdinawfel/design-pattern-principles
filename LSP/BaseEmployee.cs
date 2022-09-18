@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace LSP
 {
-    public class Manager : Employee, IManager
+    public abstract class BaseEmployee : IEmployee
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public decimal Salary { get; set; }
+
         public virtual void CalculatePerHourRate(int rank)
         {
             decimal baseAmount = 12.50M;
-            Salary = baseAmount + (rank * 4);
-        }
-        public void GeneratePerformanceReview()
-        {
-            Console.WriteLine("I'm reviewing a performance report us a Manager");
-        }
 
+            Salary = baseAmount + (rank * 2);
+        }
     }
 }

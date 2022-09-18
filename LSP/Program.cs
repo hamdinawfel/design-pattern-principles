@@ -13,7 +13,7 @@ public class Program
         manager.AssignManager(manager);
         manager.CalculatePerHourRate(4);
 
-        var emp = new Manager();
+        var emp = new Employee();
 
         emp.FirstName = "Hamdi";
         emp.LastName = "Nawfel";
