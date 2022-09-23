@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DIP
 {
-    public class Emailer : IMessageSender
+    public class Texter : IMessageSender
     {
         public void SendEmail(IPerson person, string message)
         {
-            Console.WriteLine($"Simulating sending an email to {person.EmailAddress}");
+            Console.WriteLine($"Simulating other way to send message to {person.EmailAddress}");
         }
     }
 }

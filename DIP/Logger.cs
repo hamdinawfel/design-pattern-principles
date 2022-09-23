@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DIP
+﻿namespace DIP
 {
-    public class Logger
+    public class Logger : ILogger
     {
         public void Log(string message)
         {

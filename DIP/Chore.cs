@@ -1,35 +1,33 @@
-﻿using DIP;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DIP
+﻿namespace DIP
 {
-    public class Chore
+    public class Chore : IChore
     {
+        private readonly ILogger _logger;
+        private readonly IMessageSender _sendMessager;
         public string ChoreName { get; set; }
-        public Person Owner { get; set; }
+        public IPerson Owner { get; set; }
         public double HoursWorked { get; private set; }
         public bool IsComplete { get; private set; }
 
+        public Chore(ILogger logger, IMessageSender messageSender)
+        {
+            _logger = logger;
+            _sendMessager = messageSender;
+        }
         public void PerformedWork(double hours)
         {
             HoursWorked += hours;
-            Logger log = new Logger();
-            log.Log($"Performed work on {ChoreName}");
+            _logger.Log($"Performed work on {ChoreName}");
         }
 
         public void CompleteChore()
         {
             IsComplete = true;
 
-            Logger log = new Logger();
-            log.Log($"Completed {ChoreName}");
+            
+            _logger.Log($"Completed {ChoreName}");
 
-            Emailer emailer = new Emailer();
-            emailer.SendEmail(Owner, $"The chore {ChoreName} is complete.");
+            _sendMessager.SendEmail(Owner, $"The chore {ChoreName} is complete.");
         }
     }
 }
